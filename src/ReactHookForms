@@ -1,0 +1,23 @@
+
+Advantages of React Hook Forms
+
+1. have a object student, you need to update a particular data member as in marks
+    clone student
+    update marks of cloned students
+    update student from clone student
+
+    React Hooks Forms help us here
+    By directly using setters and getters
+    SetValue("marks",100)
+
+    This is called state management
+
+2. Validation
+    Compulsary fields in Forms
+    E-Mail contains @domain.com
+
+    React Hook Forms helps disabling the button when user does not fills the compulsary fields
+
+3. reset, watch
+    Reset helps reset the Forms
+    
