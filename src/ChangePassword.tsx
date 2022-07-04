@@ -3,7 +3,7 @@ import firebase from "firebase";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { _userContext } from "./UserContext";
+import { UserContext } from "./UserContext";
 
 const usestyl = makeStyles({
     container1:{
@@ -42,7 +42,7 @@ export default function PasswordChange(){
     const style = usestyl();
     const {register,reset,handleSubmit} = useForm<Iprop>();
     const [error,setError] = useState<string>("");
-    const User  = useContext(_userContext);    
+    const User  = useContext(UserContext);    
     const hist=useNavigate();
 
     async function setPassword (prop:Iprop){

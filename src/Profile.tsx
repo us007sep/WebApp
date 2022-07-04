@@ -4,7 +4,7 @@ import { on } from "cluster";
 import firebase from "firebase";
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom";
-import { _userContext } from "./UserContext"
+import { UserContext } from "./UserContext"
 
 const usestyl = makeStyles({
     container1:{
@@ -41,14 +41,14 @@ const usestyl = makeStyles({
 
 export default function Profile(){
     const style= usestyl();
-    const usercont = useContext(_userContext);
+    const usercont = useContext(UserContext);
     const hist = useNavigate();
     const onSignOut=()=>{
         firebase.auth().signOut();
         hist("/Home");
     }
 
-    const userCont = useContext(_userContext);
+    const userCont = useContext(UserContext);
     const userExist = userCont && userCont.uid;
 
     //If user is logged out then display error message and sign up buttons

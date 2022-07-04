@@ -3,7 +3,8 @@ import { Photo } from "@material-ui/icons";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { _userContext } from "./UserContext";
+import { UserContext } from "./UserContext";
+
 
 const usestyl = makeStyles({
     container1:{
@@ -34,7 +35,7 @@ interface Iprop{
 export default function DPChange(){
     const {register,reset,handleSubmit} = useForm<Iprop>();
     const style= usestyl();
-    const userCont = useContext(_userContext);
+    const userCont = useContext(UserContext);
     const hist = useNavigate();
     const setdp = (prop:Iprop) => {
         userCont?.updateProfile({photoURL:prop.photo});

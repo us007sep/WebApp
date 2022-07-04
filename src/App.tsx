@@ -21,7 +21,7 @@ import SignUp from './SignUp';
 import Login from './Login';
 import Home from './Home';
 import './FireBaseSetup';
-import _userContext  from './UserContext';
+import UserContext  from './UserContext';
 import Profile from './Profile';
 import DPChange from './ChangeDP';
 import PasswordChange from './ChangePassword';
@@ -30,7 +30,7 @@ export default function App() {
   return (
     <Provider store={Store}>
     <BrowserRouter>
-    <_userContext>
+    <UserContext>
 
       <Routes>
       
@@ -76,7 +76,7 @@ export default function App() {
       <Route path="/PasswordChange" element={<PasswordChange/>}/>
 
       </Routes>
-      </_userContext>
+      </UserContext>
     </BrowserRouter>
     </Provider>
     );

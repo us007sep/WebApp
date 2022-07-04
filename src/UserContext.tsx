@@ -6,7 +6,7 @@ interface Iuser{
     children : React.ReactNode;
 }
 
-export const _userContext = createContext <firebase.User | null> (null);
+export const UserContext = createContext <firebase.User | null> (null);
 
 export default function SignIn(prop : Iuser){
     const [User,SetUser] = useState<firebase.User | null> (null);
@@ -20,10 +20,10 @@ export default function SignIn(prop : Iuser){
     },[])
     return(
         <>
-        <_userContext.Provider value={User}>
+        <UserContext.Provider value={User}>
             {!Spinner&&prop.children}
             {Spinner && <LoadingSpinner backdropStatus={false}/>}
-        </_userContext.Provider>
+        </UserContext.Provider>
         </>
     )
 }

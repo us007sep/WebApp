@@ -4,7 +4,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import { useNavigate } from "react-router-dom";
 import { props } from "cypress/types/bluebird";
 import { useContext } from "react";
-import { _userContext } from "./UserContext";
+import { UserContext } from "./UserContext";
 
 const useStyle = makeStyles({
     button:{
@@ -39,7 +39,7 @@ interface Iprops{
 export default function NavBar(prop:Iprops){
     const style = useStyle();
     const hist = useNavigate();
-    const userCont = useContext(_userContext);
+    const userCont = useContext(UserContext);
     const userExist = userCont && userCont.uid;
     return(
         <>
