@@ -1,2 +1,0 @@
-# WebApp
-My first WebApp
