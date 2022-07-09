@@ -1,10 +1,10 @@
-import { CircularProgress, Grid } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "./AppState";
 import HotelCard from "./HotelCard";
-import HotelReducer, { completed, IHotel, started } from "./HotelReducer";
+import { completed, IHotel, started } from "./HotelReducer";
 import LoadingSpinner from "./LoadingSpinner";
 import NavBar from "./NavBar";
 
@@ -16,7 +16,7 @@ const useStyle = makeStyles({
 })
 
 interface IFile{
-    restaurant :IHotel
+    data:{hotel:IHotel[]}
 }
 
 export default function Home(){
@@ -26,9 +26,22 @@ export default function Home(){
     const [searchHotel , setSearchHotel]= useState<string>('');
     useEffect(()=>{ 
         async function api(){
-            const response = await fetch("/hotel.json");
-            const obj :IFile[]=await response.json(); 
-            disp(completed(obj.map(x => x.restaurant)));
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            var graphql = JSON.stringify({
+            query: "{\n    hotel{\n        name,\n        cuisines,\n        id,\n        featured_image\n    }\n}",
+            variables: {}
+            })
+            var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: graphql
+            };
+            
+            const response = await fetch("https://afternoon-harbor-64523.herokuapp.com/graphql", requestOptions);
+            const obj :IFile=await response.json(); 
+            disp(completed(obj.data.hotel));
         }
         disp(started());
         api();

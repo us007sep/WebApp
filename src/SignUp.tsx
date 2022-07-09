@@ -1,5 +1,6 @@
 import Authentication from "./Authentication";
 import firebase from "firebase";
+import { userInfo } from "os";
 
 export default function SignUp(){
     async function onSubmitClick(email:string, password:string, displayName?:string){
