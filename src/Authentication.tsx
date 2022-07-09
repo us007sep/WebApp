@@ -100,7 +100,7 @@ export default function Authentication(props : Title){
         />
 
         <div className={style.buttons}>
-            <Fab color="primary" variant="extended" onClick={handleSubmit(onSubmit)}>Submit</Fab>
+            <Fab type="submit" color="primary" variant="extended" onClick={handleSubmit(onSubmit)}>Submit</Fab>
             <Fab color="secondary" variant="extended" onClick={()=>reset()}>Reset</Fab>
             <Fab variant="extended" onClick={()=> history("/Home")}>Home</Fab>
             {props.showLogin && <Fab variant="extended" onClick={()=> history("/Login")}>Login</Fab>}
