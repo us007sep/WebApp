@@ -3,8 +3,16 @@
 
 describe("Login Page",()=>{
     it("Login is working fine...",()=>{
+        cy.intercept({
+            method:'POST',
+            pathname: '**/identitytoolkit/v3/relyingparty/getAccountInfo'
+        }).as('firebaseApi');
         cy.visit("https://udaysapp1.web.app/Login");
-
+        cy.get("[name='email']").type("us007sep@gmail.com");
+        cy.get("[name='password']").type("Uday07092000!");
+        cy.get("[type='submit']").click();
+        cy.wait('@firebaseApi');
+        cy.url().should("include","Home");
     })
 })
 

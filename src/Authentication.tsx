@@ -109,7 +109,7 @@ export default function Authentication(props : Title){
         </div>          
 
             {Spinner && <LoadingSpinner backdropStatus={true}/>}
-            {error && <Typography variant="body1" className={style.errorMsg}>{error}</Typography>}
+            {error && <Typography id="error" variant="body1" className={style.errorMsg}>{error}</Typography>}
        </form>
        </div>
 
