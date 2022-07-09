@@ -38,9 +38,7 @@ export default function DPChange(){
     const userCont = useContext(UserContext);
     const hist = useNavigate();
     const setdp = (prop:Iprop) => {
-        async function name() {
-            await userCont?.updateProfile({photoURL:prop.photo});
-        }
+        userCont?.updateProfile({photoURL:prop.photo});
         hist("/Profile");
     }
    
