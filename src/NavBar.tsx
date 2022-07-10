@@ -51,9 +51,9 @@ export default function NavBar(prop:Iprops){
                     onChange={(e)=>prop.setSearchString(e.target.value)}/>
                 </div>
                 <div>
-                {!userExist && <Button className={style.button} onClick={()=>hist("/SignUp")}>SIGN UP</Button>}
-                {!userExist && <Button className={style.button} onClick={()=>hist("/Login")}>LOGIN</Button>}
-                {userExist && <Button className={style.button} onClick={()=>hist("/Profile")}>PROFILE</Button>}
+                {!userExist && <Button className={style.button} id='signup' onClick={()=>hist("/SignUp")}>SIGN UP</Button>}
+                {!userExist && <Button className={style.button} id='login' onClick={()=>hist("/Login")}>LOGIN</Button>}
+                {userExist && <Button className={style.button} id='profile' onClick={()=>hist("/Profile")}>PROFILE</Button>}
                 </div>
             </Toolbar>
             </AppBar>

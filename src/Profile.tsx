@@ -80,7 +80,7 @@ export default function Profile(){
                     {userCont?.photoURL && <CardMedia component="img" image={userCont?.photoURL!} alt="Name" />}
                     <CardContent>
                     <Typography variant="h5">{usercont?.displayName}</Typography>
-                    <Typography variant="h5">{usercont?.email}</Typography>
+                    <Typography variant="h5" id='email'>{usercont?.email}</Typography>
                     <Typography variant="h5">{usercont?.uid}</Typography>
 
                     </CardContent>
