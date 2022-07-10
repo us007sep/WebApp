@@ -71,8 +71,10 @@ export default function App() {
       {!UserExist&&<Route path="/SignUp" element={<SignUp/>}/>}
       {!UserExist&&<Route path="/Login" element={<Login/>}/>}
       <Route path="/Home" element={<Home/>}/>
+      
       <Route path="/" element={<Home/>}/>  
       <Route path="*" element={<Navigate to="/" replace/>}/>     
+      
       {UserExist && <Route path="/Profile" element={<Profile/>}/>}
 
       <Route path="/DPChange" element={<DPChange/>}/>
