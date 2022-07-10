@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Routes } from 'react-router';
 import { BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
@@ -21,16 +21,18 @@ import SignUp from './SignUp';
 import Login from './Login';
 import Home from './Home';
 import './FireBaseSetup';
-import UserContext  from './UserContext';
+import { UserContext }  from './UserContext';
 import Profile from './Profile';
 import DPChange from './ChangeDP';
 import PasswordChange from './ChangePassword';
 
 export default function App() {
+  const userCont = useContext(UserContext);
+  const UserExist = userCont && userCont.uid;
   return (
     <Provider store={Store}>
     <BrowserRouter>
-    <UserContext>
+    
 
       <Routes>
       
@@ -66,17 +68,16 @@ export default function App() {
 
       <Route path="/MaterialUI" element={<MaterialUI/>}/>
 
-      <Route path="/SignUp" element={<SignUp/>}/>
-      <Route path="/Login" element={<Login/>}/>
+      {!UserExist&&<Route path="/SignUp" element={<SignUp/>}/>}
+      {!UserExist&&<Route path="/Login" element={<Login/>}/>}
       <Route path="/Home" element={<Home/>}/>
       <Route path="*" element={<Home/>}/>     
-      <Route path="/Profile" element={<Profile/>}/>
+      {UserExist && <Route path="/Profile" element={<Profile/>}/>}
 
       <Route path="/DPChange" element={<DPChange/>}/>
       <Route path="/PasswordChange" element={<PasswordChange/>}/>
 
       </Routes>
-      </UserContext>
     </BrowserRouter>
     </Provider>
     );

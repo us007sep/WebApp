@@ -2,7 +2,6 @@ import { AppBar, Button, InputBase, Toolbar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import SearchIcon from "@material-ui/icons/Search";
 import { useNavigate } from "react-router-dom";
-import { props } from "cypress/types/bluebird";
 import { useContext } from "react";
 import { UserContext } from "./UserContext";
 
