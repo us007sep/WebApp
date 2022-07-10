@@ -89,12 +89,12 @@ export default function Profile(){
 
 
             <div className={style.buttons}>
-            <Fab color="primary" variant="extended" onClick={()=>{hist("/DPChange")}} >
+            <Fab color="primary" variant="extended" id='DPChange' onClick={()=>{hist("/DPChange")}} >
                 <AddAPhoto> </AddAPhoto>
             </Fab>
-            <Fab color="secondary" variant="extended" onClick={()=>{hist("/PasswordChange")}}>Change Password</Fab>    
-            <Fab color="primary" variant="extended" onClick={onSignOut}>Sign Out</Fab>
-            <Fab color="secondary" variant="extended" onClick={()=>hist("/Home")}>Home</Fab>
+            <Fab color="secondary" variant="extended" id='changePass' onClick={()=>{hist("/PasswordChange")}}>Change Password</Fab>    
+            <Fab color="primary" variant="extended" id='signout' onClick={onSignOut}>Sign Out</Fab>
+            <Fab color="secondary" variant="extended" id='home' onClick={()=>hist("/Home")}>Home</Fab>
             </div>    
             </div>
         </div>

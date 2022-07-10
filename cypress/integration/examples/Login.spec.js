@@ -7,12 +7,15 @@ describe("Login Page",()=>{
             method:'POST',
             pathname: '**/identitytoolkit/v3/relyingparty/getAccountInfo'
         }).as('firebaseApi');
-        cy.visit("https://udaysapp1.web.app/Login");
+        cy.visit("https://udaysapp1.web.app");
+        cy.get("[id='login']").click();
         cy.get("[name='email']").type("us007sep@gmail.com");
         cy.get("[name='password']").type("Uday07092000!");
         cy.get("[type='submit']").click();
         cy.wait('@firebaseApi');
         cy.url().should("include","Home");
+        cy.get("[id='profile']").click();
+        cy.get("[id='email']").invoke('text').should("include","us007sep@gmail.com");
     }),
     it("Incorrect Login is working testing...",()=>{
         cy.intercept({
